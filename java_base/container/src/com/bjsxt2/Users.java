@@ -1,8 +1,9 @@
 package com.bjsxt2;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Users {
+public class Users implements Comparable<Users> {
     private String username;
     private int userage;
 
@@ -54,4 +55,23 @@ public class Users {
                 ", userage=" + userage +
                 '}';
     }
+
+    //定义比较规则
+    //正数：大， 负数：小， 0：相等
+    @Override
+    public int compareTo(Users o) {
+        if(this.userage > o.userage){
+            return 1;
+        }
+
+        if(this.userage == o.getUserage()){
+            return this.username.compareTo(o.getUsername());
+        }
+
+        return -1;
+    }
+
+
+
+
 }
